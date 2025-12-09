@@ -7,6 +7,7 @@
     <meta name="description" content="Professional web development, Discord bots, logo creation, SEO optimization, news portal, Minecraft plugins, texture packs, and server setup services.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="script.js" defer></script>
     <!-- Optional: Uncomment for EmailJS integration (see EMAILJS_SETUP.md) -->
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script> -->
     <style>
@@ -43,12 +44,10 @@
     <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center gap-2">
-                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-lg">CS</span>
-                    </div>
+                <a href="/" class="flex items-center gap-2 hover:opacity-80 transition">
+                    <img src="https://placehold.co/40x40/3b82f6/ffffff?text=CS" alt="Calypso Studio Logo" class="w-10 h-10 rounded-lg">
                     <span class="font-bold text-xl gradient-text">Calypso Studio</span>
-                </div>
+                </a>
                 <div class="hidden md:flex gap-8">
                     <a href="#services" class="text-gray-700 hover:text-blue-600 transition text-sm">Services</a>
                     <a href="#projects" class="text-gray-700 hover:text-blue-600 transition text-sm">Projects</a>
@@ -185,81 +184,18 @@
                 <p class="text-gray-600">Showcase of our latest work</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Project 1 -->
-                <div class="bg-white rounded-xl overflow-hidden border border-gray-200 hover-lift">
-                    <img src="https://placehold.co/400x250/3b82f6/ffffff?text=E-Commerce+Platform" alt="E-Commerce Platform" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-gray-900 mb-2">E-Commerce Platform</h3>
-                        <p class="text-sm text-gray-600 mb-4">Full-stack e-commerce solution with payment integration and inventory management.</p>
-                        <div class="flex gap-3">
-                            <a href="#" class="text-sm text-blue-600 hover:text-blue-700 font-medium">View Demo →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="bg-white rounded-xl overflow-hidden border border-gray-200 hover-lift">
-                    <img src="https://placehold.co/400x250/6366f1/ffffff?text=Discord+Bot" alt="Discord Bot" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-gray-900 mb-2">Discord Bot</h3>
-                        <p class="text-sm text-gray-600 mb-4">Custom moderation bot with advanced features for community management and engagement.</p>
-                        <div class="flex gap-3">
-                            <a href="#" class="text-sm text-blue-600 hover:text-blue-700 font-medium">View Demo →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="bg-white rounded-xl overflow-hidden border border-gray-200 hover-lift">
-                    <img src="https://placehold.co/400x250/3b82f6/ffffff?text=Brand+Identity" alt="Brand Identity" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-gray-900 mb-2">Brand Identity Design</h3>
-                        <p class="text-sm text-gray-600 mb-4">Complete branding package including logo, guidelines, and visual identity system.</p>
-                        <div class="flex gap-3">
-                            <a href="#" class="text-sm text-blue-600 hover:text-blue-700 font-medium">View Demo →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="bg-white rounded-xl overflow-hidden border border-gray-200 hover-lift">
-                    <img src="https://placehold.co/400x250/6366f1/ffffff?text=News+Portal" alt="News Portal" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-gray-900 mb-2">News Portal</h3>
-                        <p class="text-sm text-gray-600 mb-4">Content management system with article publishing, categories, and user dashboard.</p>
-                        <div class="flex gap-3">
-                            <a href="#" class="text-sm text-blue-600 hover:text-blue-700 font-medium">View Demo →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="bg-white rounded-xl overflow-hidden border border-gray-200 hover-lift">
-                    <img src="https://placehold.co/400x250/3b82f6/ffffff?text=Minecraft+Server" alt="Minecraft Server" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-gray-900 mb-2">Minecraft Server Setup</h3>
-                        <p class="text-sm text-gray-600 mb-4">Fully configured server with custom plugins, texture packs, and optimization.</p>
-                        <div class="flex gap-3">
-                            <a href="#" class="text-sm text-blue-600 hover:text-blue-700 font-medium">View Demo →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="bg-white rounded-xl overflow-hidden border border-gray-200 hover-lift">
-                    <img src="https://placehold.co/400x250/6366f1/ffffff?text=SEO+Campaign" alt="SEO Campaign" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="font-bold text-gray-900 mb-2">SEO Optimization</h3>
-                        <p class="text-sm text-gray-600 mb-4">Complete SEO strategy implementation resulting in 200% increase in organic traffic.</p>
-                        <div class="flex gap-3">
-                            <a href="#" class="text-sm text-blue-600 hover:text-blue-700 font-medium">View Demo →</a>
-                        </div>
-                    </div>
-                </div>
+            <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Projects will be rendered here by script.js -->
             </div>
         </div>
     </section>
+
+    <script>
+        // Render projects when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProjects('projects-container');
+        });
+    </script>
 
     <!-- About Section -->
     <section id="about" class="py-16 px-4">
