@@ -761,7 +761,7 @@ function showResultToast(wpm, win, accuracy) {
                          </div>
                          <h3 class="font-semibold text-lg text-gray-900">WhatsApp</h3>
                      </div>
-                     <p class="text-sm text-gray-600 mb-4">${SITE_CONFIG.contactWhatsApp}</p>
+                     <p class="text-sm text-gray-600 mb-4">Available on WhatsApp</p>
                      <a href="${whatsappLink}" target="_blank" rel="noopener" class="font-medium text-green-600 hover:text-green-700 text-sm">Message on WhatsApp →</a>
                  </div>
 
