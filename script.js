@@ -13,11 +13,12 @@ const SITE_CONFIG = {
     heroHeading: "Creative Digital Solutions",
     heroSubheading: "Web, Design, Gaming & More",
     heroImage: "https://placehold.co/600x400/3b82f6/ffffff?text=Hero+Image",
-    contactEmail: "hello@calypsostudio.tech",
+    contactEmail: "info@calypsostudio.tech",
+    contactPhone: "+977 9745690471",
     socialLinks: {
         twitter: "https://twitter.com/calypsostudio",
-        discord: "https://discord.gg/example",
-        github: "https://github.com/birajrai/calypsostudio.tech"
+        discord: "https://discord.gg/T4ty9EBU3S",
+        github: "https://github.com/calypsostudio"
     }
 };
 
@@ -369,9 +370,9 @@ function renderNavigation() {
                     <a href="#projects-container" class="text-gray-700 hover:text-blue-600 transition text-sm">Projects</a>
                     <a href="#team-container" class="text-gray-700 hover:text-blue-600 transition text-sm">Team</a>
                     <a href="#about-container" class="text-gray-700 hover:text-blue-600 transition text-sm">About</a>
-                    <a href="#footer-container" class="text-gray-700 hover:text-blue-600 transition text-sm">Contact</a>
+                    <a href="#contact-container" class="text-gray-700 hover:text-blue-600 transition text-sm">Contact</a>
                 </div>
-                <a href="#footer-container" class="hidden md:block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-medium">
+                <a href="#contact-container" class="hidden md:block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-medium">
                     Get Started
                 </a>
                 <button class="md:hidden text-gray-700">
@@ -507,7 +508,7 @@ function renderAbout() {
                     <h2 class="text-4xl font-bold text-gray-900 mb-4">${ABOUT_CALYPSO.heading}</h2>
                     <div id="about-typing-box" tabindex="0" class="outline-none">
                         <p class="text-gray-600 mb-4 leading-relaxed">
-                            <span id="about-typing-line" class="whitespace-pre-wrap"></span>
+                            <span id="about-typing-line" class="whitespace-pre-wrap">${ABOUT_CALYPSO.paragraphs.join(' ')}</span>
                         </p>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
@@ -619,6 +620,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initAboutTyping();
     renderTeam();
     renderTestimonials();
+    renderContact();
     renderFooter();
 });
 
@@ -717,4 +719,74 @@ function showResultToast(wpm, win, accuracy) {
     setTimeout(() => {
         toast.remove();
     }, 3000);
-}
+ }
+
+ // Contact section renderer
+ function renderContact() {
+     const contactSection = document.getElementById('contact-container');
+     if (!contactSection) return;
+     const emailLink = `mailto:${SITE_CONFIG.contactEmail}`;
+     const phoneLink = `tel:${SITE_CONFIG.contactPhone.replace(/[^+\d]/g, '')}`;
+     const discordLink = SITE_CONFIG.socialLinks.discord;
+     const githubLink = SITE_CONFIG.socialLinks.github;
+
+     contactSection.innerHTML = `
+     <section class="py-16 px-4">
+         <div class="max-w-6xl mx-auto">
+             <div class="mb-12">
+                 <h2 class="text-4xl font-bold text-gray-900 mb-2">Contact Us</h2>
+                 <p class="text-gray-600">Reach out and we'll get back quickly</p>
+             </div>
+             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                 <!-- Email Card -->
+                 <div class="bg-white rounded-xl border border-gray-200 p-6 hover-lift">
+                     <div class="flex items-center gap-4 mb-3">
+                         <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
+                             <i class="fas fa-envelope text-xl"></i>
+                         </div>
+                         <h3 class="font-semibold text-lg text-gray-900">Email</h3>
+                     </div>
+                     <p class="text-sm text-gray-600 mb-4">${SITE_CONFIG.contactEmail}</p>
+                     <a href="${emailLink}" class="font-medium text-blue-600 hover:text-blue-700 text-sm">Send an Email →</a>
+                 </div>
+
+                 <!-- Phone Card -->
+                 <div class="bg-white rounded-xl border border-gray-200 p-6 hover-lift">
+                     <div class="flex items-center gap-4 mb-3">
+                         <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+                             <i class="fas fa-phone text-xl"></i>
+                         </div>
+                         <h3 class="font-semibold text-lg text-gray-900">Phone</h3>
+                     </div>
+                     <p class="text-sm text-gray-600 mb-4">${SITE_CONFIG.contactPhone}</p>
+                     <a href="${phoneLink}" class="font-medium text-green-600 hover:text-green-700 text-sm">Call Us →</a>
+                 </div>
+
+                 <!-- Discord Card -->
+                 <div class="bg-white rounded-xl border border-gray-200 p-6 hover-lift">
+                     <div class="flex items-center gap-4 mb-3">
+                         <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center">
+                             <i class="fab fa-discord text-xl"></i>
+                         </div>
+                         <h3 class="font-semibold text-lg text-gray-900">Discord</h3>
+                     </div>
+                     <p class="text-sm text-gray-600 mb-4">Join our community for support and updates.</p>
+                     <a href="${discordLink}" target="_blank" rel="noopener" class="font-medium text-indigo-600 hover:text-indigo-700 text-sm">Join our Server →</a>
+                 </div>
+
+                 <!-- GitHub Card -->
+                 <div class="bg-white rounded-xl border border-gray-200 p-6 hover-lift">
+                     <div class="flex items-center gap-4 mb-3">
+                         <div class="w-12 h-12 bg-gray-100 text-gray-700 rounded-full flex items-center justify-center">
+                             <i class="fab fa-github text-xl"></i>
+                         </div>
+                         <h3 class="font-semibold text-lg text-gray-900">GitHub</h3>
+                     </div>
+                     <p class="text-sm text-gray-600 mb-4">Explore our projects and contributions.</p>
+                     <a href="${githubLink}" target="_blank" rel="noopener" class="font-medium text-gray-700 hover:text-gray-900 text-sm">View GitHub →</a>
+                 </div>
+             </div>
+         </div>
+     </section>
+     `;
+ }
