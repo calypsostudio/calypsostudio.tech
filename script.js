@@ -601,13 +601,24 @@ function initAboutTyping() {
     spans.forEach(s => lineEl.appendChild(s));
 
     let index = 0;
+    let startTime = null;
+    let correctCount = 0;
+    let finished = false;
 
     box.addEventListener('keydown', function (e) {
+        if (finished) {
+            if (e.key === ' ') e.preventDefault();
+            return;
+        }
         const nextChar = chars[index];
 
         if (e.key === 'Backspace') {
             if (index > 0) {
                 index--;
+                // Adjust correct count if reverting a correct char
+                if (spans[index].classList.contains('text-blue-600')) {
+                    correctCount = Math.max(0, correctCount - 1);
+                }
                 spans[index].classList.remove('text-blue-600', 'text-red-600', 'font-bold');
             }
             e.preventDefault();
@@ -616,26 +627,54 @@ function initAboutTyping() {
 
         if (!nextChar) return; // ignore if at end
 
+        // Mark start time on first actual input
+        if (startTime === null && (e.key.length === 1 || e.key === ' ')) {
+            startTime = Date.now();
+        }
+
         if (e.key === ' ') {
-            if (nextChar === ' ') {
+            const isCorrect = nextChar === ' ';
+            if (isCorrect) {
                 spans[index].classList.add('text-blue-600', 'font-bold');
+                correctCount++;
             } else {
                 spans[index].classList.add('text-red-600', 'font-bold');
             }
             index++;
             e.preventDefault();
-            return;
-        }
-
-        if (e.key && e.key.length === 1) {
-            if (e.key === nextChar) {
+        } else if (e.key && e.key.length === 1) {
+            const isCorrect = e.key === nextChar;
+            if (isCorrect) {
                 spans[index].classList.add('text-blue-600', 'font-bold');
+                correctCount++;
             } else {
                 spans[index].classList.add('text-red-600', 'font-bold');
             }
             index++;
         }
+
+        // If finished, compute WPM and show toast
+        if (index >= chars.length && !finished) {
+            finished = true;
+            const elapsedMs = (startTime ? Date.now() - startTime : 0);
+            const elapsedMin = Math.max(0.001, elapsedMs / 60000);
+            const wpm = Math.round((correctCount / 5) / elapsedMin);
+            const win = wpm > 49;
+            const accuracy = Math.round((correctCount / chars.length) * 100);
+            showResultToast(wpm, win, accuracy);
+        }
     });
 
     // No auto-focus to avoid jumping on load
+}
+
+// Simple bottom-right toast for result
+function showResultToast(wpm, win, accuracy) {
+    const toast = document.createElement('div');
+    toast.className = 'fixed bottom-4 right-4 bg-gray-900 text-white px-4 py-3 rounded-lg shadow-lg text-sm z-50';
+    toast.textContent = `WPM: ${wpm} • Accuracy: ${accuracy}% — ${win ? 'You Won!' : 'You Lost'}`;
+    document.body.appendChild(toast);
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
 }
