@@ -608,7 +608,7 @@ function initAboutTyping() {
         if (e.key === 'Backspace') {
             if (index > 0) {
                 index--;
-                spans[index].classList.remove('text-blue-600', 'text-red-600');
+                spans[index].classList.remove('text-blue-600', 'text-red-600', 'font-bold');
             }
             e.preventDefault();
             return;
@@ -618,9 +618,9 @@ function initAboutTyping() {
 
         if (e.key === ' ') {
             if (nextChar === ' ') {
-                spans[index].classList.add('text-blue-600');
+                spans[index].classList.add('text-blue-600', 'font-bold');
             } else {
-                spans[index].classList.add('text-red-600');
+                spans[index].classList.add('text-red-600', 'font-bold');
             }
             index++;
             e.preventDefault();
@@ -629,9 +629,9 @@ function initAboutTyping() {
 
         if (e.key && e.key.length === 1) {
             if (e.key === nextChar) {
-                spans[index].classList.add('text-blue-600');
+                spans[index].classList.add('text-blue-600', 'font-bold');
             } else {
-                spans[index].classList.add('text-red-600');
+                spans[index].classList.add('text-red-600', 'font-bold');
             }
             index++;
         }
