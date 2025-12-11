@@ -757,8 +757,7 @@ function showResultToast(wpm, win, accuracy) {
  function renderContact() {
      const contactSection = document.getElementById('contact-container');
      if (!contactSection) return;
-     const emailLink = `mailto:${SITE_CONFIG.contactEmail}`;
-    const phoneLink = `tel:${SITE_CONFIG.contactPhone.replace(/[^+\d]/g, '')}`;
+    const emailLink = `mailto:${SITE_CONFIG.contactEmail}`;
     const whatsappDigits = SITE_CONFIG.contactWhatsApp.replace(/[^+\d]/g, '').replace(/^\+/, '');
     const whatsappLink = `https://wa.me/${whatsappDigits}?text=${encodeURIComponent('Hello Calypso Studio!')}`;
      const discordLink = SITE_CONFIG.socialLinks.discord;
@@ -808,7 +807,7 @@ function showResultToast(wpm, win, accuracy) {
                      <a href="${discordLink}" target="_blank" rel="noopener" class="font-medium text-indigo-600 hover:text-indigo-700 text-sm">Join our Server →</a>
                  </div>
 
-                 <!-- GitHub Card -->
+                <!-- GitHub Card -->
                  <div class="bg-white rounded-2xl border border-gray-200 p-6 hover-lift">
                      <div class="flex items-center gap-4 mb-4">
                          <div class="w-12 h-12 bg-gray-100 text-gray-700 rounded-xl flex items-center justify-center">
@@ -816,7 +815,7 @@ function showResultToast(wpm, win, accuracy) {
                          </div>
                          <h3 class="font-semibold text-lg text-gray-900">GitHub</h3>
                      </div>
-                     <p class="text-sm text-gray-600 mb-4">Explore our projects and contributions.</p>
+                    <p class="text-sm text-gray-600 mb-4">Explore our projects and contributions.</p>
                      <a href="${githubLink}" target="_blank" rel="noopener" class="font-medium text-gray-700 hover:text-gray-900 text-sm">View GitHub →</a>
                  </div>
              </div>
